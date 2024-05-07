@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @next/next/no-img-element */
 import { Icons } from '@/components/Icons'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 // import Phone from '@/components/Phone'
 // import { Reviews } from '@/components/Reviews'
 import { buttonVariants } from '@/components/ui/button'
 import { ArrowRight, Check, Star } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
@@ -17,7 +19,7 @@ export default function Home() {
               <div className='absolute w-28 left-0 -top-20 hidden lg:block'>
                 {/* i forgot this div right here in the video, it's purely visual gradient and looks nice */}
                 <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28' />
-                <Image src='/snake-1.png' className='w-full' alt='' />
+                <img src='/snake-1.png' className='w-full' />
               </div>
               <h1 className='relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl'>
                 Your Image on a <span className='bg-green-600 px-2 text-white'>Custom</span> Phone
@@ -47,27 +49,27 @@ export default function Home() {
 
               <div className='mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5'>
                 <div className='flex -space-x-4'>
-                  <Image
+                  <img
                     className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100'
                     src='/users/user-1.png'
                     alt='user image'
                   />
-                  <Image
+                  <img
                     className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100'
                     src='/users/user-2.png'
                     alt='user image'
                   />
-                  <Image
+                  <img
                     className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100'
                     src='/users/user-3.png'
                     alt='user image'
                   />
-                  <Image
+                  <img
                     className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100'
                     src='/users/user-4.jpg'
                     alt='user image'
                   />
-                  <Image
+                  <img
                     className='inline-block object-cover h-10 w-10 rounded-full ring-2 ring-slate-100'
                     src='/users/user-5.jpg'
                     alt='user image'
@@ -93,16 +95,11 @@ export default function Home() {
 
           <div className='col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit'>
             <div className='relative md:max-w-xl'>
-              <Image
+              <img
                 src='/your-image.png'
                 className='absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block'
-                alt=''
               />
-              <Image
-                src='/line.png'
-                className='absolute w-20 -left-6 -bottom-6 select-none'
-                alt=''
-              />
+              <img src='/line.png' className='absolute w-20 -left-6 -bottom-6 select-none' />
               {/* <Phone className='w-64' imgSrc='/testimonials/1.jpg' /> */}
             </div>
           </div>
@@ -121,7 +118,7 @@ export default function Home() {
               </span>{' '}
               say
             </h2>
-            <Image alt='' src='/snake-2.png' className='w-24 order-0 lg:order-2' />
+            <img src='/snake-2.png' className='w-24 order-0 lg:order-2' />
           </div>
 
           <div className='mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16'>
@@ -135,15 +132,15 @@ export default function Home() {
               </div>
               <div className='text-lg leading-8'>
                 <p>
-                  &quot;The case feels durable and I even got a compliment on the design. Had the
-                  case for two and a half months now and{' '}
+                  "The case feels durable and I even got a compliment on the design. Had the case
+                  for two and a half months now and{' '}
                   <span className='p-0.5 bg-slate-800 text-white'>the image is super clear</span>,
                   on the case I had before, the image started fading into yellow-ish color after a
-                  couple weeks. Love it.&quot;
+                  couple weeks. Love it."
                 </p>
               </div>
               <div className='flex gap-4 mt-2'>
-                <Image
+                <img
                   className='rounded-full h-12 w-12 object-cover'
                   src='/users/user-1.png'
                   alt='user'
@@ -169,17 +166,17 @@ export default function Home() {
               </div>
               <div className='text-lg leading-8'>
                 <p>
-                  &quot;I usually keep my phone together with my keys in my pocket and that led to
-                  some pretty heavy scratchmarks on all of my last phone cases. This one, besides a
+                  "I usually keep my phone together with my keys in my pocket and that led to some
+                  pretty heavy scratchmarks on all of my last phone cases. This one, besides a
                   barely noticeable scratch on the corner,{' '}
                   <span className='p-0.5 bg-slate-800 text-white'>
                     looks brand new after about half a year
                   </span>
-                  . I dig it.&quot;
+                  . I dig it."
                 </p>
               </div>
               <div className='flex gap-4 mt-2'>
-                <Image
+                <img
                   className='rounded-full h-12 w-12 object-cover'
                   src='/users/user-4.jpg'
                   alt='user'
@@ -212,15 +209,13 @@ export default function Home() {
 
           <div className='mx-auto max-w-6xl px-6 lg:px-8'>
             <div className='relative flex flex-col items-center md:grid grid-cols-2 gap-40'>
-              <Image
-                alt=''
+              <img
                 src='/arrow.png'
                 className='absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0'
               />
 
               <div className='relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl'>
-                <Image
-                  alt=''
+                <img
                   src='/horse.jpg'
                   className='rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full'
                 />

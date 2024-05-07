@@ -3,8 +3,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Icons } from '@/components/Icons'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-// import Phone from '@/components/Phone'
-// import { Reviews } from '@/components/Reviews'
+import Phone from '@/components/Phone'
+import { Reviews } from '@/components/Reviews'
 import { buttonVariants } from '@/components/ui/button'
 import { ArrowRight, Check, Star } from 'lucide-react'
 import Link from 'next/link'
@@ -100,7 +100,7 @@ export default function Home() {
                 className='absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block'
               />
               <img src='/line.png' className='absolute w-20 -left-6 -bottom-6 select-none' />
-              {/* <Phone className='w-64' imgSrc='/testimonials/1.jpg' /> */}
+              <Phone className='w-64' imgSrc='/testimonials/1.jpg' />
             </div>
           </div>
         </MaxWidthWrapper>
@@ -193,7 +193,9 @@ export default function Home() {
           </div>
         </MaxWidthWrapper>
 
-        <div className='pt-16'>{/* <Reviews /> */}</div>
+        <div className='pt-16'>
+          <Reviews />
+        </div>
       </section>
 
       <section>
@@ -221,7 +223,7 @@ export default function Home() {
                 />
               </div>
 
-              {/* <Phone className='w-60' imgSrc='/horse_phone.jpg' /> */}
+              <Phone className='w-60' imgSrc='/horse_phone.jpg' />
             </div>
           </div>
 

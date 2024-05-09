@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import { HTMLAttributes } from 'react'
-import Phone from '../phone'
+import Phone from '../app-ui/phone'
 
 interface ReviewProps extends HTMLAttributes<HTMLDivElement> {
   imgSrc: string

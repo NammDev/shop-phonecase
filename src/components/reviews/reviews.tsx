@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import MaxWidthWrapper from '../max-width-wrapper'
+import MaxWidthWrapper from '../app-ui/max-width-wrapper'
 import ReviewGrid from './review-grid'
 
 export function Reviews() {

@@ -4,7 +4,7 @@
 import { Icons } from '@/components/app-ui/icons'
 import MaxWidthWrapper from '@/components/app-ui/max-width-wrapper'
 import Phone from '@/components/app-ui/phone'
-import { Reviews } from '@/components/app-ui/reviews/Reviews'
+import { Reviews } from '@/components/reviews/reviews'
 import { buttonVariants } from '@/components/ui/button'
 import { ArrowRight, Check, Star } from 'lucide-react'
 import Link from 'next/link'

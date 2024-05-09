@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { Recursive } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import { Toaster } from '@/components/ui/toaster'
-import Providers from '@/components/Providers'
+import Navbar from '@/components/layouts/navbar'
+import Providers from '@/components/layouts/providers'
+import Footer from '@/components/layouts/footer'
 // import { constructMetadata } from '@/lib/utils'
 
 const recursive = Recursive({ subsets: ['latin'] })

@@ -1,6 +1,6 @@
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import Steps from '@/components/Steps'
+import MaxWidthWrapper from '@/components/app-ui/max-width-wrapper'
 import { ReactNode } from 'react'
+import Steps from './_components/Steps'
 
 const ConfigureLayout = ({ children }: { children: ReactNode }) => {
   return (

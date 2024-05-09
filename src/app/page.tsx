@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
-import { Icons } from '@/components/Icons'
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import Phone from '@/components/Phone'
-import { Reviews } from '@/components/Reviews'
+import { Icons } from '@/components/app-ui/icons'
+import MaxWidthWrapper from '@/components/app-ui/max-width-wrapper'
+import Phone from '@/components/app-ui/phone'
+import { Reviews } from '@/components/app-ui/reviews/Reviews'
 import { buttonVariants } from '@/components/ui/button'
 import { ArrowRight, Check, Star } from 'lucide-react'
 import Link from 'next/link'

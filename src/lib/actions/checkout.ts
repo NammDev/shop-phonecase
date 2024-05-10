@@ -14,11 +14,11 @@ export const createCheckoutSession = async ({ configId }: { configId: string }) 
   const user = await getUser()
   if (!user) throw new Error('You need to be logged in')
 
-  // const { finish, material } = configuration
+  const { finish, material } = configuration
 
-  // let price = BASE_PRICE
-  // if (finish === 'textured') price += PRODUCT_PRICES.finish.textured
-  // if (material === 'polycarbonate') price += PRODUCT_PRICES.material.polycarbonate
+  let price = BASE_PRICE
+  if (finish === 'textured') price += PRODUCT_PRICES.finish.textured
+  if (material === 'polycarbonate') price += PRODUCT_PRICES.material.polycarbonate
 
   // let order: Order | undefined = undefined
 
@@ -28,8 +28,6 @@ export const createCheckoutSession = async ({ configId }: { configId: string }) 
   //     configurationId: configuration.id,
   //   },
   // })
-
-  // console.log(user.id, configuration.id)
 
   // if (existingOrder) {
   //   order = existingOrder

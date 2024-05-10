@@ -4,7 +4,7 @@ import { CaseColor, CaseFinish, CaseMaterial, PhoneModel } from '@prisma/client'
 import { db } from '../db'
 
 export const getConfiguration = async (configId: string) => {
-  return db.configuration.findUnique({
+  return await db.configuration.findUnique({
     where: { id: configId },
   })
 }
@@ -25,7 +25,6 @@ export const saveConfigurationDb = async ({
   configId,
 }: SaveConfigType) => {
   try {
-    console.log('test')
     await db.configuration.update({
       where: { id: configId },
       data: { color, finish, material, model },

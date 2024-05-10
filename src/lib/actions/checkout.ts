@@ -5,9 +5,11 @@ import { stripe } from '@/lib/stripe'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { db } from '../db'
 import { getConfiguration } from './configuration'
+import { Order } from '@prisma/client'
+import { createOrder, getOrder } from './order'
 
 export const createCheckoutSession = async ({ configId }: { configId: string }) => {
-  const configuration = getConfiguration(configId)
+  const configuration = await getConfiguration(configId)
   if (!configuration) throw new Error('No such configuration found')
 
   const { getUser } = getKindeServerSession()
@@ -16,39 +18,28 @@ export const createCheckoutSession = async ({ configId }: { configId: string }) 
 
   const { finish, material } = configuration
 
+  // cal price
   let price = BASE_PRICE
   if (finish === 'textured') price += PRODUCT_PRICES.finish.textured
   if (material === 'polycarbonate') price += PRODUCT_PRICES.material.polycarbonate
 
-  // let order: Order | undefined = undefined
+  // get order, if not -> create order
+  let order: Order | undefined = undefined
+  const existingOrder = await getOrder(user.id, configuration.id)
+  if (existingOrder) {
+    order = existingOrder
+  } else {
+    order = await createOrder(user.id, configuration.id, price)
+  }
 
-  // const existingOrder = await db.order.findFirst({
-  //   where: {
-  //     userId: user.id,
-  //     configurationId: configuration.id,
-  //   },
-  // })
-
-  // if (existingOrder) {
-  //   order = existingOrder
-  // } else {
-  //   order = await db.order.create({
-  //     data: {
-  //       amount: price / 100,
-  //       userId: user.id,
-  //       configurationId: configuration.id,
-  //     },
-  //   })
-  // }
-
-  // const product = await stripe.products.create({
-  //   name: 'Custom iPhone Case',
-  //   images: [configuration.imageUrl],
-  //   default_price_data: {
-  //     currency: 'USD',
-  //     unit_amount: price,
-  //   },
-  // })
+  const product = await stripe.products.create({
+    name: 'Custom iPhone Case',
+    images: [configuration.imageUrl],
+    default_price_data: {
+      currency: 'USD',
+      unit_amount: price,
+    },
+  })
 
   // const stripeSession = await stripe.checkout.sessions.create({
   //   success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,

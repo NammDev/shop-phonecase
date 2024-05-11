@@ -1,6 +1,6 @@
 import { getConfiguration } from '@/lib/actions/configuration'
 import { notFound } from 'next/navigation'
-import DesignConfigurator from './design-configurator'
+import DesignConfigurator from './_components/design-configurator'
 
 interface PageProps {
   searchParams: {

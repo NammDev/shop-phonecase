@@ -41,19 +41,18 @@ export const createCheckoutSession = async ({ configId }: { configId: string }) 
     },
   })
 
-  // const stripeSession = await stripe.checkout.sessions.create({
-  //   success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
-  //   cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/configure/preview?id=${configuration.id}`,
-  //   payment_method_types: ['card', 'paypal'],
-  //   mode: 'payment',
-  //   shipping_address_collection: { allowed_countries: ['DE', 'US'] },
-  //   metadata: {
-  //     userId: user.id,
-  //     orderId: order.id,
-  //   },
-  //   line_items: [{ price: product.default_price as string, quantity: 1 }],
-  // })
+  const stripeSession = await stripe.checkout.sessions.create({
+    success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
+    cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/configure/preview?id=${configuration.id}`,
+    payment_method_types: ['card', 'paypal'],
+    mode: 'payment',
+    shipping_address_collection: { allowed_countries: ['VN', 'US', 'CA'] },
+    metadata: {
+      userId: user.id,
+      orderId: order.id,
+    },
+    line_items: [{ price: product.default_price as string, quantity: 1 }],
+  })
 
-  // return { url: stripeSession.url }
-  return { url: 'stripeSession.url' }
+  return { url: stripeSession.url }
 }

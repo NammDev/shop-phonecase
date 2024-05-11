@@ -1,6 +1,4 @@
 'use server'
-
-import { Order } from '@prisma/client'
 import { db } from '../db'
 
 export const getOrder = async (userId: string, configId: string) => {

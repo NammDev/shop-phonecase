@@ -5,11 +5,11 @@ import { Toaster } from '@/components/ui/toaster'
 import Navbar from '@/components/layouts/navbar'
 import Providers from '@/components/layouts/providers'
 import Footer from '@/components/layouts/footer'
-// import { constructMetadata } from '@/lib/utils'
+import { constructMetadata } from '@/lib/utils'
 
 const recursive = Recursive({ subsets: ['latin'] })
 
-// export const metadata = constructMetadata()
+export const metadata = constructMetadata()
 
 export default function RootLayout({
   children,

@@ -21,7 +21,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   const { toast } = useToast()
 
   // get user from kinde
-  const test = useKindeBrowserClient()
+  const { user } = useKindeBrowserClient()
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
 
   // Configuration Information
@@ -55,9 +55,8 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
 
   // onClick Button
   const handleCheckout = () => {
-    console.log(test)
-    if (test) {
-      // createPaymentSession({ configId: id })
+    if (user) {
+      createPaymentSession({ configId: id })
     } else {
       localStorage.setItem('configurationId', id)
       setIsLoginModalOpen(true)

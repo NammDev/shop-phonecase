@@ -7,8 +7,8 @@ import Stripe from 'stripe'
 export async function POST(req: NextRequest) {
   try {
     // make sure request from stripe
-    const signature = headers().get('stripes-signature')
-    if (!signature) return new Response('Invalid signature', { status: 400 })
+    const signature = headers().get('stripe-signature')
+    if (!signature) return new Response('Invalid signaturee', { status: 400 })
 
     // get event from stripe
     const body = await req.text()

@@ -3,6 +3,10 @@ import { stripe } from '@/lib/stripe'
 import { headers } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
+import { Resend } from 'resend'
+import OrderReceivedEmail from '@/components/emails/OrderReceivedEmail'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
@@ -33,24 +37,24 @@ export async function POST(req: NextRequest) {
       // update order
       const updatedOrder = await updateOrderStripe(orderId, session)
 
-      //   await resend.emails.send({
-      //     from: 'CaseCobra <hello@joshtriedcoding.com>',
-      //     to: [event.data.object.customer_details.email],
-      //     subject: 'Thanks for your order!',
-      //     react: OrderReceivedEmail({
-      //       orderId,
-      //       orderDate: updatedOrder.createdAt.toLocaleDateString(),
-      //       // @ts-ignore
-      //       shippingAddress: {
-      //         name: session.customer_details!.name!,
-      //         city: session.shipping_details!.address!.city!,
-      //         country: session.shipping_details!.address!.country!,
-      //         postalCode: session.shipping_details!.address!.postal_code!,
-      //         street: session.shipping_details!.address!.line1!,
-      //         state: session.shipping_details!.address!.state,
-      //       },
-      //     }),
-      //   })
+      await resend.emails.send({
+        from: 'CaseCobra <namdeveloper.ca@gmail.com>',
+        to: [event.data.object.customer_details.email],
+        subject: 'Thanks for your order!',
+        react: OrderReceivedEmail({
+          orderId,
+          orderDate: updatedOrder.createdAt.toLocaleDateString(),
+          // @ts-ignore
+          shippingAddress: {
+            name: session.customer_details!.name!,
+            city: session.shipping_details!.address!.city!,
+            country: session.shipping_details!.address!.country!,
+            postalCode: session.shipping_details!.address!.postal_code!,
+            street: session.shipping_details!.address!.line1!,
+            state: session.shipping_details!.address!.state,
+          },
+        }),
+      })
       return NextResponse.json({ result: event, ok: true })
     }
   } catch (error) {

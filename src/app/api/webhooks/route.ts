@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       const updatedOrder = await updateOrderStripe(orderId, session)
 
       await resend.emails.send({
-        from: 'namdeveloper.ca@gmail.com',
+        from: 'Case Cobra <onboarding@resend.dev>',
         to: [event.data.object.customer_details.email],
         subject: 'Thanks for your order!',
         react: OrderReceivedEmail({
